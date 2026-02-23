@@ -1,0 +1,113 @@
+{
+  "profile": {
+    "name": "Salvado",
+    "role": "Cyber Security Enthusiast",
+    "email": "aryabutur@gmail.com",
+    "github": "https://github.com/LaOdhe16",
+    "linkedin": "https://www.linkedin.com/in/salvado-odhe-306369356/",
+    "instagram": "https://www.instagram.com/elsalvtoreee/",
+    "resume_link": "#",
+    "about": "Crafting high-performance web applications and scalable digital solutions with a focus on clean architecture and exceptional user experience."
+  },
+  "skills": [
+    "Python Developer (Back-End)", "Python", "Linux",  
+    "MySQL", "Tailwind CSS", "Burp Suite", "MIcrosoft Azure Cloud"
+  ],
+  "education": [
+    { "year": "2023 - Present", "degree": "Cybersecurity Student", "school": "University Amikom Yogyakarta" },
+    { "year": "2020 - 2023", "degree": "IPA", "school": "SMAN 1 Kulisusu" },
+    { "year": "2017 - 2020", "school": "SMPN 1 Kulisusu" },
+    { "year": "2011 - 2017", "school": "SDN 2 Kulisusu" }
+  ],
+  "experience": [
+    { "year": "2026", "role": "Red Team (Penetration Testing)", "company": "IDNetworkers" },
+    { "year": "2026", "role": "Cyber Sentinel Secure ", "company": "" }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "YARA Malware Detection Rules",
+      "category": "Cyber Security",
+      "year": "2025",
+      "github_link": "https://github.com/LaOdhe16/Yara-Rule",
+      "description": "A collection of YARA rules for identifying and detecting malware patterns using YARA’s rule-based scanning syntax. The repository contains custom `.yar` signatures aimed at improving threat detection and malware analysis workflows."
+    },
+    {
+      "id": 2,
+      "title": "HomeService",
+      "category": "Full-Stack",
+      "year": "2025",
+      "github_link": "https://github.com/LaOdhe16/HomeService",
+      "description": "HomeService is a web-based platform built with Python and Flask to manage household service bookings, hosted on Microsoft Azure with a MySQL database."
+    },
+    {
+      "id": 3,
+      "title": "Library Book Borrowing System",
+      "category": "Full-Stack",
+      "year": "2024",
+      "github_link": "https://github.com/LaOdhe16/Library_Management",
+      "description": "A web-based library management and book borrowing application built with Flask and MySQL, featuring user authentication, book search, borrowing/returning functions, and admin book management."
+    },
+    {
+      "id": 4,
+      "title": "Flappy Bird Game (Python)",
+      "category": "Game",
+      "year": "2024",
+      "github_link": "https://github.com/LaOdhe16/Projek-Game-Flappy-Bird",
+      "description": "A Python-based implementation of the classic Flappy Bird game, featuring game logic and assets to recreate the addictive side-scrolling bird gameplay in a desktop environment."
+    }
+  ],
+  "certificates": [
+    {
+      "id": 1,
+      "title": "CCNA Introduction to Networks",
+      "issuer": "CISCO Networking Academy",
+      "year": "2025",
+      "image": "/static/img/ccna-intro.png"
+    },
+    {
+      "id": 2,
+      "title": "CCNA: Enterprise Networking",
+      "issuer": "CISCO Networking Academy",
+      "year": "2025",
+      "image": "/static/img/ccna-enterprise.png"
+    },
+    {
+      "id": 3,
+      "title": "CCNA: Switching, Routing",
+      "issuer": "CISCO Networking Academy",
+      "year": "2025",
+      "image": "/static/img/ccna-switching.png"
+    },
+    {
+      "id": 4,
+      "title": "Etical Hacker",
+      "issuer": "CISCO Networking Academy",
+      "year": "2026",
+      "image": "/static/img/EticalHacker.png"
+    },
+    {
+      "id": 5,
+      "title": "Cybersecurity Educator",
+      "issuer": "RED TEAM LEADERS",
+      "year": "2025",
+      "image": "/static/img/ccep.png"
+    },
+    {
+      "id": 6,
+      "title": "Phishing Prevention (CPPS)",
+      "issuer": "Hack & Fix",
+      "year": "2025",
+      "image": "/static/img/cpps.png"
+    }
+  ],
+  "services": [
+    { "title": "Web Application Development", "desc": "Building fast, responsive, and robust web applications from scratch.", "icon": "fa-code" },
+    { "title": "Cyber security (Penetration Testing)", "desc": "Conducting advanced penetration testing and uncovering vulnerabilities across modern digital infrastructures.", "icon": "fa-bug" }
+  ],
+  "stats": [
+    { "value": 4, "label": "Projects Delivered" },
+    { "value": 0, "label": "Happy Clients" },
+    { "value": 1, "label": "Years Experience" }
+  ]
+}
