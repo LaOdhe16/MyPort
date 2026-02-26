@@ -20,8 +20,8 @@
     { "year": "2011 - 2017", "school": "SDN 2 Kulisusu" }
   ],
   "experience": [
-    { "year": "2026", "role": "Red Team (Penetration Testing)", "company": "IDNetworkers" },
-    { "year": "2026", "role": "Cyber Sentinel Secure ", "company": "" }
+    { "year": "2026", "role": "Bootcamp Red Team (Penetration Testing)", "company": "IDNetworkers" },
+    { "year": "2026", "role": "Bootcamp Cyber Sentinel Secure ", "company": "" }
   ],
   "projects": [
     {
