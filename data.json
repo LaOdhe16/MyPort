@@ -48,8 +48,24 @@
       "github_link": "https://github.com/LaOdhe16/Library_Management",
       "description": "A web-based library management and book borrowing application built with Flask and MySQL, featuring user authentication, book search, borrowing/returning functions, and admin book management."
     },
-    {
+     {
       "id": 4,
+      "title": "Vehicle Rental System",
+      "category": "Full-Stack",
+      "year": "2024",
+      "github_link": "https://github.com/LaOdhe16/Sistem_Penyewaan_Kendaraan",
+      "description": "Building a vehicle reservation platform that allows users to view unit availability and conduct rental transactions systematically."
+    },
+    {
+      "id": 5,
+      "title": "Ticket Booking System",
+      "category": "Full-Stack",
+      "year": "2024",
+      "github_link": "https://github.com/LaOdhe16/Sistem_Pemesanan_Tiket",
+      "description": "Design a web-based ticket booking system with schedule management features and a structured checkout process."
+    },
+    {
+      "id": 6,
       "title": "Flappy Bird Game (Python)",
       "category": "Game",
       "year": "2024",
