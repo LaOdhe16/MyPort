@@ -11,7 +11,7 @@
   },
   "skills": [
     "Python Developer (Back-End)", "Python", "Linux",  
-    "MySQL", "Tailwind CSS", "Burp Suite", "MIcrosoft Azure Cloud"
+    "MySQL", "Tailwind CSS", "Burp Suite", "Microsoft Azure Cloud"
   ],
   "education": [
     { "year": "2023 - Present", "degree": "Cybersecurity Student", "school": "University Amikom Yogyakarta" },
@@ -122,7 +122,7 @@
     { "title": "Cyber security (Penetration Testing)", "desc": "Conducting advanced penetration testing and uncovering vulnerabilities across modern digital infrastructures.", "icon": "fa-bug" }
   ],
   "stats": [
-    { "value": 4, "label": "Projects Delivered" },
+    { "value": 6, "label": "Projects Delivered" },
     { "value": 0, "label": "Happy Clients" },
     { "value": 1, "label": "Years Experience" }
   ]
