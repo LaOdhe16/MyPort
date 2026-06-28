@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="pd-hero">
+  <div class="container">
+    <a href="/#work" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Works</a>
+    <div class="pd-meta">
+      <span class="wt-cat">{{ project.category }}</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted)">{{ project.year }}</span>
+    </div>
+    <h1 class="pd-title">{{ project.title }}</h1>
+    <a href="{{ project.github_link }}" target="_blank" class="btn-outline"
+       style="margin-top:1.8rem;display:inline-flex;align-items:center;gap:9px;">
+      <i class="fa-brands fa-github"></i> View on GitHub
+    </a>
+  </div>
+</section>
+
+<section class="pd-body">
+  <div class="container pd-grid">
+    <div class="pd-main">
+      <h2 class="pd-sec-h">Overview</h2>
+      <p class="pd-desc">{{ project.description }}</p>
+      {% if project.features %}
+      <h2 class="pd-sec-h" style="margin-top:3rem">Key Features</h2>
+      <ul class="pd-feats">
+        {% for f in project.features %}
+        <li><i class="fa-solid fa-check"></i> {{ f }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
+    <aside class="pd-aside">
+      {% if project.stack %}
+      <div class="pd-aside-block">
+        <span class="pd-lbl">Tech Stack</span>
+        <div class="tag-wrap" style="gap:8px">
+          {% for t in project.stack %}<span class="s-tag">{{ t }}</span>{% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="pd-aside-block">
+        <span class="pd-lbl">Project Info</span>
+        <div class="pd-info-row"><span>Category</span><span>{{ project.category }}</span></div>
+        <div class="pd-info-row"><span>Year</span><span>{{ project.year }}</span></div>
+        <div class="pd-info-row">
+          <span>Source</span>
+          <a href="{{ project.github_link }}" target="_blank" class="pd-gh-link">
+            GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.7rem"></i>
+          </a>
+        </div>
+      </div>
+
+      <a href="{{ project.github_link }}" target="_blank" class="btn-navy"
+         style="display:flex;justify-content:center;align-items:center;gap:9px;">
+        <i class="fa-brands fa-github"></i> View Source Code
+      </a>
+    </aside>
+  </div>
+</section>
+
+{% if next_project %}
+<div class="next-strip">
+  <div class="container">
+    <span class="next-label">Next Project</span>
+    <a href="/project/{{ next_project.id }}" class="next-link">
+      <span>{{ next_project.title }}</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
