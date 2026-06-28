@@ -1,56 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ profile.name }} | Portfolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=12.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ profile.name }} — Portfolio</title>
+  <meta name="description" content="{{ profile.name }}, {{ profile.role }}. Cybersecurity & Python Developer.">
+  <link rel="icon" href="{{ url_for('static', filename='img/Sc.ico') }}" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=80">
 </head>
 <body>
 
-    <div class="ambient-glow"></div>
-    <div class="noise-bg"></div>
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <nav class="nav">
-        <a href="/" class="logo magnetic">SALVADO.</a>
-        <div class="nav-links">
-            <a href="/#about" class="magnetic">About</a>
-            <a href="/#background" class="magnetic">Background</a>
-            <a href="/#work" class="magnetic">Works</a>
-        </div>
-    </nav>
-
-    <div class="social-fixed">
-        <a href="{{ profile.github }}" target="_blank" class="magnetic"><i class="fa-brands fa-github"></i></a>
-        <a href="{{ profile.linkedin }}" target="_blank" class="magnetic"><i class="fa-brands fa-linkedin-in"></i></a>
-        {% if profile.instagram %}
-        <a href="{{ profile.instagram }}" target="_blank" class="magnetic"><i class="fa-brands fa-instagram"></i></a>
-        {% endif %}
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="pageLoader">
+    <div class="pl-inner">
+      <div class="loader-text text-1">Let's connect.</div>
+      <div class="loader-text text-2">Let's secure.</div>
+      <div class="loader-logo final-text">Sc.</div>
     </div>
+  </div>
 
-    <button id="backToTop" class="back-to-top magnetic"><i class="fa-solid fa-arrow-up"></i></button>
+  <div class="page-grain"></div>
+  <div id="scrollBar" class="scroll-bar"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
 
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
-            
-            {% block content %}{% endblock %}
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-wrap">
+      <a href="/" class="logo">Sc<span class="logo-dot">.</span></a>
 
-            <footer>
-                <div class="container">
-                    <p class="footer-subtitle">Ready to Elevate Your Digital Presence?</p>
-                    <a href="mailto:{{ profile.email }}" class="footer-link magnetic">GET IN TOUCH</a>
-                    <p class="footer-copyright">&copy; 2026 {{ profile.name }}. All Rights Reserved.</p>
-                </div>
-            </footer>
-            
+      <nav class="nav-center" id="navLinks">
+        <a href="/#about"        data-sec="about">About</a>
+        <a href="/#expertise"    data-sec="expertise">Skills</a>
+        <a href="/#background"   data-sec="background">Background</a>
+        <a href="/#work"         data-sec="work">Works</a>
+        <a href="/#certificates" data-sec="certificates">Certs</a>
+        <a href="/#contact"      data-sec="contact">Contact</a>
+      </nav>
+
+      <div class="nav-end">
+        <a href="{{ profile.resume_link }}" target="_blank" class="nav-cv">
+          <i class="fa-solid fa-download"></i> CV
+        </a>
+        <a href="mailto:{{ profile.email }}" class="nav-cta magnet">Hire Me</a>
+        <button class="ham" id="ham" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="drawer" id="drawer">
+    <button class="drawer-x" id="drawerX"><i class="fa-solid fa-xmark"></i></button>
+    <div class="drawer-inner">
+      <nav class="drawer-links">
+        <a href="/#about">About</a>
+        <a href="/#expertise">Skills</a>
+        <a href="/#background">Background</a>
+        <a href="/#work">Works</a>
+        <a href="/#certificates">Certs</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <div class="drawer-bottom">
+        <div class="drawer-foot">
+          <a href="{{ profile.github }}" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="{{ profile.linkedin }}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          {% if profile.instagram %}<a href="{{ profile.instagram }}" target="_blank"><i class="fa-brands fa-instagram"></i></a>{% endif %}
         </div>
-    </main>
+        <a href="mailto:{{ profile.email }}" class="drawer-cta">Say Hello →</a>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-bg" id="drawerBg"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}?v=12.0"></script>
+  <!-- DOT NAV -->
+  <nav class="dot-nav" id="dotNav">
+    <a class="dot" data-section="about"        title="About"></a>
+    <a class="dot" data-section="expertise"    title="Skills"></a>
+    <a class="dot" data-section="background"   title="Background"></a>
+    <a class="dot" data-section="work"         title="Works"></a>
+    <a class="dot" data-section="certificates" title="Certs"></a>
+    <a class="dot" data-section="contact"      title="Contact"></a>
+  </nav>
+  <span class="dot-nav-label" id="dotNavLabel"></span>
+
+  <!-- SIDEBAR -->
+  <aside class="side-socials">
+    <a href="{{ profile.github }}"   target="_blank"><i class="fa-brands fa-github"></i></a>
+    <a href="{{ profile.linkedin }}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+    {% if profile.instagram %}<a href="{{ profile.instagram }}" target="_blank"><i class="fa-brands fa-instagram"></i></a>{% endif %}
+    <span class="side-line"></span>
+  </aside>
+
+  <main>{% block content %}{% endblock %}</main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="foot-top">
+        <div class="foot-left">
+          <p class="foot-eyebrow">Let's work together</p>
+          <a href="mailto:{{ profile.email }}" class="foot-email">{{ profile.email }}</a>
+        </div>
+        <div class="foot-right">
+          <a href="/" class="logo foot-logo">Sc<span class="logo-dot">.</span></a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <p class="foot-copy">&copy; {{ current_year }} {{ profile.name }}. All rights reserved.</p>
+        <div class="foot-links">
+          <a href="{{ profile.github }}" target="_blank">GitHub</a>
+          <a href="{{ profile.linkedin }}" target="_blank">LinkedIn</a>
+          {% if profile.instagram %}<a href="{{ profile.instagram }}" target="_blank">Instagram</a>{% endif %}
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="topBtn" class="top-btn" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-x" id="lbX"><i class="fa-solid fa-xmark"></i></button>
+    <div class="lb-wrap">
+      <img id="lbImg" src="" alt="">
+      <p class="lb-cap" id="lbCap"></p>
+    </div>
+  </div>
+
+  <!-- ── TOAST ── -->
+  <div class="toast" id="globalToast"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}?v=80"></script>
 </body>
 </html>
