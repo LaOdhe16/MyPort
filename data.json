@@ -4,25 +4,61 @@
     "role": "Cyber Security Enthusiast",
     "email": "aryabutur@gmail.com",
     "github": "https://github.com/LaOdhe16",
-    "linkedin": "https://www.linkedin.com/in/salvado-odhe-306369356/",
+    "linkedin": "https://www.linkedin.com/in/salvado-agus-firmansyah-ode-306369356/",
     "instagram": "https://www.instagram.com/elsalvtoreee/",
     "resume_link": "https://drive.google.com/file/d/1pS-ZCwDEcB-UdopzLJE7PD2yyz0n7oKN/view?usp=drive_link",
-    "about": "Crafting high-performance web applications and scalable digital solutions with a focus on clean architecture and exceptional user experience."
+    "about": "Cybersecurity student & Python developer with a passion for penetration testing, threat detection, and building secure web applications. Currently honing red-team skills at University Amikom Yogyakarta."
   },
+
   "skills": [
-    "Python Developer (Back-End)", "Python", "Linux",  
-    "MySQL", "Tailwind CSS", "Burp Suite", "Microsoft Azure Cloud"
+    "Python",
+    "Flask",
+    "MySQL",
+    "Linux",
+    "Microsoft Azure",
+    "Tailwind CSS",
+    "Burp Suite",
+    "YARA Rules",
+    "Wireshark",
+    "Nmap",
+    "Git",
+    "Bash Scripting"
   ],
+
   "education": [
-    { "year": "2023 - Present", "degree": "Cybersecurity Student", "school": "University Amikom Yogyakarta" },
-    { "year": "2020 - 2023", "degree": "IPA", "school": "SMAN 1 Kulisusu" },
-    { "year": "2017 - 2020", "school": "SMPN 1 Kulisusu" },
-    { "year": "2011 - 2017", "school": "SDN 2 Kulisusu" }
+    {
+      "year": "2023 - Present",
+      "degree": "Cybersecurity Student",
+      "school": "University Amikom Yogyakarta"
+    },
+    {
+      "year": "2020 - 2023",
+      "degree": "IPA",
+      "school": "SMAN 1 Kulisusu"
+    },
+    {
+      "year": "2017 - 2020",
+      "school": "SMPN 1 Kulisusu"
+    },
+    {
+      "year": "2011 - 2017",
+      "school": "SDN 2 Kulisusu"
+    }
   ],
+
   "experience": [
-    { "year": "2026", "role": "Bootcamp Red Team (Penetration Testing)", "company": "IDNetworkers" },
-    { "year": "2026", "role": "Bootcamp Cyber Sentinel Secure ", "company": "" }
+    {
+      "year": "2026",
+      "role": "Bootcamp Red Team (Penetration Testing)",
+      "company": "IDNetworkers"
+    },
+    {
+      "year": "2026",
+      "role": "Bootcamp Cyber Sentinel Secure ",
+      "company": ""
+    }
   ],
+
   "projects": [
     {
       "id": 1,
@@ -30,49 +66,120 @@
       "category": "Cyber Security",
       "year": "2025",
       "github_link": "https://github.com/LaOdhe16/Yara-Rule",
-      "description": "A collection of YARA rules for identifying and detecting malware patterns using YARA’s rule-based scanning syntax. The repository contains custom `.yar` signatures aimed at improving threat detection and malware analysis workflows."
+      "description": "A collection of YARA rules for identifying and detecting malware patterns using YARA\u2019s rule-based scanning syntax. The repository contains custom `.yar` signatures aimed at improving threat detection and malware analysis workflows.",
+      "stack": [
+        "YARA",
+        "Malware Analysis",
+        "Threat Detection"
+      ],
+      "features": [
+        "Custom .yar signatures for known malware families",
+        "Pattern-based string and byte-sequence matching rules",
+        "Structured for use in SOC / EDR detection workflows"
+      ]
     },
+
     {
       "id": 2,
       "title": "HomeService",
       "category": "Full-Stack",
       "year": "2025",
       "github_link": "https://github.com/LaOdhe16/HomeService",
-      "description": "HomeService is a web-based platform built with Python and Flask to manage household service bookings, hosted on Microsoft Azure with a MySQL database."
+      "description": "HomeService is a web-based platform built with Python and Flask to manage household service bookings, hosted on Microsoft Azure with a MySQL database.",
+      "stack": [
+        "Python",
+        "Flask",
+        "MySQL",
+        "Microsoft Azure"
+      ],
+
+      "features": [
+        "End-to-end household service booking workflow",
+        "MySQL-backed data layer for bookings and users",
+        "Deployed and hosted on Microsoft Azure"
+      ]
     },
+
     {
       "id": 3,
       "title": "Library Book Borrowing System",
       "category": "Full-Stack",
       "year": "2024",
       "github_link": "https://github.com/LaOdhe16/Library_Management",
-      "description": "A web-based library management and book borrowing application built with Flask and MySQL, featuring user authentication, book search, borrowing/returning functions, and admin book management."
+      "description": "A web-based library management and book borrowing application built with Flask and MySQL, featuring user authentication, book search, borrowing/returning functions, and admin book management.",
+      "stack": [
+        "Python",
+        "Flask",
+        "MySQL"
+      ],
+
+      "features": [
+        "User authentication and role-based access",
+        "Book catalog search and browsing",
+        "Borrow / return workflow with admin inventory tools"
+      ]
     },
-     {
+
+    {
       "id": 4,
       "title": "Vehicle Rental System",
       "category": "Full-Stack",
       "year": "2024",
       "github_link": "https://github.com/LaOdhe16/Sistem_Penyewaan_Kendaraan",
-      "description": "Building a vehicle reservation platform that allows users to view unit availability and conduct rental transactions systematically."
+      "description": "Building a vehicle reservation platform that allows users to view unit availability and conduct rental transactions systematically.",
+      "stack": [
+        "Python",
+        "Flask",
+        "MySQL"
+      ],
+
+      "features": [
+        "Real-time vehicle unit availability tracking",
+        "Structured rental transaction workflow",
+        "Centralized record-keeping for reservations"
+      ]
     },
+
     {
       "id": 5,
       "title": "Ticket Booking System",
       "category": "Full-Stack",
       "year": "2024",
       "github_link": "https://github.com/LaOdhe16/Sistem_Pemesanan_Tiket",
-      "description": "Design a web-based ticket booking system with schedule management features and a structured checkout process."
+      "description": "Design a web-based ticket booking system with schedule management features and a structured checkout process.",
+      "stack": [
+        "Python",
+        "Flask",
+        "MySQL"
+      ],
+
+      "features": [
+        "Schedule and availability management",
+        "Guided seat / ticket selection flow",
+        "Structured, multi-step checkout process"
+      ]
     },
+
     {
       "id": 6,
       "title": "Flappy Bird Game (Python)",
       "category": "Game",
       "year": "2024",
       "github_link": "https://github.com/LaOdhe16/Projek-Game-Flappy-Bird",
-      "description": "A Python-based implementation of the classic Flappy Bird game, featuring game logic and assets to recreate the addictive side-scrolling bird gameplay in a desktop environment."
+      "description": "A Python-based implementation of the classic Flappy Bird game, featuring game logic and assets to recreate the addictive side-scrolling bird gameplay in a desktop environment.",
+      "stack": [
+        "Python",
+        "Pygame"
+      ],
+
+      "features": [
+        "Classic side-scrolling obstacle gameplay loop",
+        "Collision detection and live scoring system",
+        "Custom sprite assets and game-over states"
+      ]
     }
   ],
+
   "certificates": [
     {
       "id": 1,
@@ -81,6 +188,7 @@
       "year": "2025",
       "image": "/static/img/ccna-intro.png"
     },
+
     {
       "id": 2,
       "title": "CCNA: Enterprise Networking",
@@ -88,6 +196,7 @@
       "year": "2025",
       "image": "/static/img/ccna-enterprise.png"
     },
+    
     {
       "id": 3,
       "title": "CCNA: Switching, Routing",
@@ -95,6 +204,7 @@
       "year": "2025",
       "image": "/static/img/ccna-switching.png"
     },
+
     {
       "id": 4,
       "title": "Ethical Hacker",
@@ -102,6 +212,7 @@
       "year": "2026",
       "image": "/static/img/EticalHacker.png"
     },
+
     {
       "id": 5,
       "title": "Cybersecurity Educator",
@@ -109,6 +220,7 @@
       "year": "2025",
       "image": "/static/img/ccep.png"
     },
+
     {
       "id": 6,
       "title": "Phishing Prevention (CPPS)",
@@ -116,6 +228,7 @@
       "year": "2025",
       "image": "/static/img/cpps.png"
     },
+
     {
       "id": 7,
       "title": "Cyber Security Penetration Testing",
@@ -124,13 +237,37 @@
       "image": "/static/img/salvadopentest.png"
     }
   ],
+
   "services": [
-    { "title": "Web Application Development", "desc": "Building fast, responsive, and robust web applications from scratch.", "icon": "fa-code" },
-    { "title": "Cyber security (Penetration Testing)", "desc": "Conducting advanced penetration testing and uncovering vulnerabilities across modern digital infrastructures.", "icon": "fa-bug" }
+    {
+      "icon": "fa-layer-group",
+      "title": "Web Development",
+      "desc": "Full-stack web apps with Python & Flask, from database design to deployment on Azure."
+    },
+    {
+      "icon": "fa-shield-halved",
+      "title": "Penetration Testing",
+      "desc": "Network & web app security assessments using industry tools like Burp Suite and Nmap."
+    },
+    {
+      "icon": "fa-bug",
+      "title": "Malware Analysis",
+      "desc": "Writing and testing YARA detection rules to identify and classify malware signatures."
+    }
   ],
+  
   "stats": [
-    { "value": 6, "label": "Projects Delivered" },
-    { "value": 0, "label": "Happy Clients" },
-    { "value": 1, "label": "Years Experience" }
+    {
+      "value": 6,
+      "label": "Projects Delivered"
+    },
+    {
+      "value": 7,
+      "label": "Certifications Earned"
+    },
+    {
+      "value": 2,
+      "label": "Years Experience"
+    }
   ]
 }
