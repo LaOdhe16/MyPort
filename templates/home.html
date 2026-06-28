@@ -1,192 +1,249 @@
 {% extends 'base.html' %}
-
 {% block content %}
+
+<!-- HERO -->
 <section class="hero" id="about">
-    <div class="container hero-grid">
-        <div class="hero-text-box">
-            <div class="status-badge anim-up">
-                <span class="status-dot"></span> Available for new opportunities
-            </div>
-            
-            <h1 class="display-text anim-up">{{ profile.name }}</h1>
-            <h2 class="hero-role anim-up" style="font-family: 'Syne'; font-weight: 600;">{{ profile.role }}</h2>
-            <p class="hero-desc anim-up">{{ profile.about }}</p>
-            
-            <div class="hero-actions anim-up">
-                <a href="#work" class="btn-primary magnetic">Explore Works</a>
-                <a href="{{ profile.resume_link }}" target="_blank" class="btn-secondary magnetic"><i class="fa-solid fa-download"></i> Download CV</a>
-            </div>
-        </div>
-        
-        <div class="hero-img-box anim-fade">
-            <div class="img-frame">
-                <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="{{ profile.name }}" class="hero-img">
-            </div>
-        </div>
+  <div class="hero-shape"></div>
+  <span class="hero-index">00</span>
+
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-live"></span>Available for opportunities
+      </div>
+      <h1 class="hero-name">
+        <span class="h-line"><span class="h-inner">{{ profile.name.split()[0] if profile.name.split()|length > 1 else profile.name }}</span></span>
+        {% if profile.name.split()|length > 1 %}
+        <span class="h-line"><span class="h-inner accent-word">{{ profile.name.split()[1:] | join(' ') }}</span></span>
+        {% endif %}
+      </h1>
+      <div class="hero-role reveal">
+        <span class="role-line"></span>
+        <span class="role-rotating" id="roleText">Cybersecurity Student</span><span class="role-cursor">|</span>
+      </div>
+      <p class="hero-bio reveal">{{ profile.about }}</p>
+      <div class="hero-ctas reveal">
+        <a href="#work" class="btn-navy magnet">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="{{ profile.resume_link }}" target="_blank" class="btn-outline magnet">
+          <i class="fa-solid fa-download"></i> Download CV
+        </a>
+      </div>
+      <div class="hero-chips reveal">
+        <span class="chip"><i class="fa-solid fa-location-dot"></i> Yogyakarta, ID</span>
+        <span class="chip"><i class="fa-solid fa-graduation-cap"></i> Amikom University</span>
+        <span class="chip chip-gold"><i class="fa-solid fa-certificate"></i> 7 Certs</span>
+      </div>
     </div>
+
+    <div class="hero-photo reveal-right">
+      <div class="photo-wrap" id="heroPhoto">
+        <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="{{ profile.name }}" class="profile-img">
+        <div class="photo-shine"></div>
+      </div>
+      <div class="photo-tag tag-top">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div><p class="pt-title">Security</p><p class="pt-sub">Ethical Hacker</p></div>
+      </div>
+      <div class="photo-tag tag-bot">
+        <i class="fa-brands fa-python"></i>
+        <div><p class="pt-title">Python</p><p class="pt-sub">Developer</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll"><div class="hs-line"><div class="hs-thumb"></div></div><span>Scroll</span></div>
 </section>
 
-<section class="section-padding" id="expertise">
-    <div class="container about-grid">
-        <div class="content-column">
-            <div class="section-header">
-                <span class="section-num">01</span>
-                <h2 class="section-title">Tech Stack</h2>
-            </div>
-            <div class="skills-container">
-                {% for skill in skills %}
-                <span class="skill-tag">{{ skill }}</span>
-                {% endfor %}
-            </div>
-        </div>
-        
-        <div class="content-column">
-            <div class="section-header">
-                <span class="section-num">02</span>
-                <h2 class="section-title">Core Services</h2>
-            </div>
-            <div class="services-list">
-                {% for service in services %}
-                <div class="clean-card">
-                    <i class="fa-solid {{ service.icon }} card-icon"></i>
-                    <h3 class="card-title">{{ service.title }}</h3>
-                    <p class="card-desc">{{ service.desc }}</p>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+<!-- STATS -->
+<div class="stats-band">
+  <div class="container stats-row">
+    {% for stat in stats %}
+    <div class="stat-cell reveal">
+      <p class="stat-val">
+        <span class="bs-num" data-target="{{ stat.value }}">0</span><span class="stat-plus">+</span>
+      </p>
+      <p class="stat-lbl">{{ stat.label }}</p>
     </div>
+    {% if not loop.last %}<div class="stat-div"></div>{% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- SKILLS / SERVICES -->
+<section class="section" id="expertise">
+  <div class="container">
+    <div class="exp-top reveal">
+      <span class="sec-tag">01 — EXPERTISE</span>
+      <p class="exp-statement">
+        Building <em>secure, scalable systems</em> — from web applications to network security and malware detection.
+      </p>
+    </div>
+
+    <div class="exp-body">
+      <div class="exp-left">
+        <p class="col-label reveal">Tech Stack</p>
+        <div class="tag-wrap reveal">
+          {% for skill in skills %}
+          <span class="s-tag bc-tag">{{ skill }}</span>
+          {% endfor %}
+        </div>
+        <p class="tag-count reveal"><span class="tc-num">{{ skills|length }}</span> technologies</p>
+      </div>
+      <div class="exp-right">
+        <p class="col-label reveal">Services</p>
+        {% for svc in services %}
+        <div class="svc-item reveal">
+          <div class="svc-num-box">0{{ loop.index }}</div>
+          <div class="svc-icon-box"><i class="fa-solid {{ svc.icon }}"></i></div>
+          <div class="svc-text">
+            <h3 class="svc-title">{{ svc.title }}</h3>
+            <p class="svc-desc">{{ svc.desc }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section-padding" style="background: rgba(255,255,255,0.01);" id="background">
-    <div class="container about-grid">
-        <div class="content-column">
-            <div class="section-header">
-                <span class="section-num">03</span>
-                <h2 class="section-title">Experience</h2>
-            </div>
-            <div class="experience-list">
-                {% for exp in experience %}
-                <div class="clean-card timeline-card">
-                    <div class="timeline-year">{{ exp.year }}</div>
-                    <h3 class="card-title">{{ exp.role }}</h3>
-                    <p class="card-desc">{{ exp.company }}</p>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        
-        <div class="content-column">
-            <div class="section-header">
-                <span class="section-num">04</span>
-                <h2 class="section-title">Education</h2>
-            </div>
-            <div class="experience-list">
-                {% for edu in education %}
-                <div class="clean-card timeline-card">
-                    <div class="timeline-year">{{ edu.year }}</div>
-                    <h3 class="card-title">{{ edu.degree }}</h3>
-                    <p class="card-desc">{{ edu.school }}</p>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+<!-- JOURNEY -->
+<section class="section section-cream" id="background">
+  <div class="container">
+    <div class="jrn-head">
+      <span class="sec-tag reveal">02 — BACKGROUND</span>
+      <h2 class="jrn-big-title reveal">Journey</h2>
     </div>
+    <div class="journey-grid">
+      <div class="jrn-col">
+        <h3 class="jrn-col-title reveal"><i class="fa-solid fa-briefcase"></i> Experience</h3>
+        {% for exp in experience %}
+        <div class="jrn-item reveal">
+          <div class="jrn-connector"><div class="jrn-dot"></div><div class="jrn-vline"></div></div>
+          <div class="jrn-card">
+            <span class="jrn-year">{{ exp.year }}</span>
+            <h4 class="jrn-role">{{ exp.role }}</h4>
+            {% if exp.company %}<p class="jrn-company">{{ exp.company }}</p>{% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="jrn-col">
+        <h3 class="jrn-col-title reveal"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+        {% for edu in education %}
+        <div class="jrn-item reveal">
+          <div class="jrn-connector"><div class="jrn-dot"></div><div class="jrn-vline"></div></div>
+          <div class="jrn-card">
+            <span class="jrn-year">{{ edu.year }}</span>
+            {% if edu.degree %}<h4 class="jrn-role">{{ edu.degree }}</h4>{% endif %}
+            <p class="jrn-company">{{ edu.school }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section-padding" id="work">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-num">05</span>
-            <h2 class="section-title">Selected Works</h2>
-        </div>
-        
-        <div class="filter-container anim-up">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="Full-Stack">Full-Stack</button>
-            <button class="filter-btn" data-filter="Game">Game</button>
-            <button class="filter-btn" data-filter="Cyber Security">Cyber Security</button>
-        </div>
-        
-        <div class="works-list">
-            <div class="work-list-header">
-                <div class="w-col">Project Title</div>
-                <div class="w-col">Category</div>
-                <div class="w-col" style="text-align: right;">Year</div>
-            </div>
-            
-            {% for project in projects %}
-            <a href="{{ project.github_link }}" target="_blank" class="work-list-item work-item" data-category="{{ project.category }}">
-                <div class="w-col w-title">{{ project.title }}</div>
-                <div class="w-col w-category">{{ project.category }}</div>
-                <div class="w-col w-year" style="text-align: right;">
-                    {{ project.year }} 
-                    <i class="fa-solid fa-arrow-up-right-from-square w-icon" style="margin-left: 10px;"></i>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
+<!-- WORKS -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="works-head">
+      <div>
+        <span class="sec-tag reveal">03 — PORTFOLIO</span>
+        <h2 class="works-title reveal">Selected<br><em>Works</em></h2>
+      </div>
+      <div class="filter-group reveal">
+        <button class="f-btn active" data-f="all">All <span class="f-count">{{ projects|length }}</span></button>
+        <button class="f-btn" data-f="Full-Stack">Full‑Stack</button>
+        <button class="f-btn" data-f="Cyber Security">Security</button>
+        <button class="f-btn" data-f="Game">Game</button>
+      </div>
     </div>
+    <p class="works-count" id="worksCount">Showing <strong>{{ projects|length }}</strong> projects</p>
+
+    <div class="works-table">
+      <div class="wt-header">
+        <span>No.</span><span>Project</span><span>Category</span><span>Stack</span><span>Year</span><span></span>
+      </div>
+      {% for project in projects %}
+      <a href="/project/{{ project.id }}" class="wt-row wi reveal" data-cat="{{ project.category }}">
+        <span class="wt-num">{{ '%02d' % loop.index }}</span>
+        <div class="wt-info">
+          <h3 class="wt-title">{{ project.title }}</h3>
+          <p class="wt-desc">{{ project.description[:80] }}…</p>
+        </div>
+        <span class="wt-cat">{{ project.category }}</span>
+        <div class="wt-stack">
+          {% if project.stack %}{% for t in project.stack[:3] %}<span>{{ t }}</span>{% endfor %}{% endif %}
+        </div>
+        <span class="wt-year">{{ project.year }}</span>
+        <div class="wt-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+        <div class="wt-fill"></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
-<section class="section-padding" id="certificates">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-num">06</span>
-            <h2 class="section-title">Certifications & Awards</h2>
+<!-- CERTS -->
+<section class="section section-cream" id="certificates">
+  <div class="container">
+    <span class="sec-tag reveal">04 — ACHIEVEMENTS</span>
+    <h2 class="sec-h2 reveal">Certifications</h2>
+    <div class="certs-grid">
+      {% for cert in certificates %}
+      <div class="cert-card reveal" data-img="{{ cert.image }}" data-title="{{ cert.title }}">
+        <div class="cert-img">
+          <img src="{{ cert.image }}" alt="{{ cert.title }}" loading="lazy">
+          <div class="cert-overlay"><i class="fa-solid fa-expand"></i><span>View</span></div>
         </div>
-        
-        <div class="cert-grid">
-            {% for cert in certificates %}
-            <div class="cert-card">
-                <div class="cert-img-container">
-                    <img src="{{ cert.image }}" alt="{{ cert.title }}">
-                </div>
-                <div class="cert-info">
-                    <span class="cert-year">{{ cert.year }} &bull; {{ cert.issuer }}</span>
-                    <h3 class="cert-title">{{ cert.title }}</h3>
-                </div>
-            </div>
-            {% endfor %}
+        <div class="cert-body">
+          <span class="cert-issuer">{{ cert.issuer }} · {{ cert.year }}</span>
+          <h3 class="cert-name">{{ cert.title }}</h3>
         </div>
+      </div>
+      {% endfor %}
     </div>
+  </div>
 </section>
 
-<section id="stats-section" class="stats-section section-padding">
-    <div class="container">
-        <div class="stats-grid">
-            {% for stat in stats %}
-            <div class="stat-box">
-                <span class="stat-number" data-target="{{ stat.value }}">0</span>
-                <span class="stat-label">{{ stat.label }}</span>
-            </div>
-            {% endfor %}
-        </div>
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-left">
+      <span class="sec-tag sec-tag-light reveal">05 — GET IN TOUCH</span>
+      <h2 class="contact-title reveal">Let's build<br>something <em>great</em>.</h2>
+      <p class="contact-sub reveal">Open to freelance projects, internships &amp; collaborations. Usually replies within 24 hours.</p>
+      <div class="contact-actions reveal">
+        <a href="mailto:{{ profile.email }}" class="btn-white magnet">
+          <i class="fa-solid fa-envelope"></i> Say Hello
+        </a>
+        <button class="btn-ghost-white magnet btn-copy" data-email="{{ profile.email }}" id="copyEmailBtn">
+          <i class="fa-regular fa-copy"></i> Copy Email
+        </button>
+      </div>
+      <div class="contact-socials reveal">
+        <a href="{{ profile.github }}" target="_blank" class="c-social"><i class="fa-brands fa-github"></i></a>
+        <a href="{{ profile.linkedin }}" target="_blank" class="c-social"><i class="fa-brands fa-linkedin-in"></i></a>
+        {% if profile.instagram %}<a href="{{ profile.instagram }}" target="_blank" class="c-social"><i class="fa-brands fa-instagram"></i></a>{% endif %}
+      </div>
     </div>
+    <div class="contact-right reveal">
+      <div class="time-card bento-card">
+        <div class="tc-top">
+          <div class="tc-loc">🇮🇩 Indonesia — WIB</div>
+          <span class="tc-live"><span class="tc-dot"></span>Available</span>
+        </div>
+        <div class="tc-time" id="localTime">00:00:00</div>
+        <p class="tc-note">Replies within 24 hours</p>
+        <div class="tc-links">
+          <a href="{{ profile.github }}" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="{{ profile.linkedin }}" target="_blank"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+          {% if profile.instagram %}<a href="{{ profile.instagram }}" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section-padding" id="contact" style="border-top: 1px solid var(--border); background: var(--card-bg);">
-    <div class="container about-grid" style="align-items: center;">
-        <div class="content-column">
-            <h2 class="display-text" style="font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -1px;">Let's build <br> together.</h2>
-            <p class="hero-desc" style="margin-top: 20px;">Open for new opportunities and exciting projects. Feel free to reach out.</p>
-            <a href="mailto:{{ profile.email }}" class="btn-primary magnetic" style="display: inline-block; margin-top: 10px;">Say Hello</a>
-        </div>
-        <div class="content-column">
-            <div class="time-widget-box">
-                <div class="widget-header">
-                    <span class="widget-label"><i class="fa-regular fa-clock"></i> LOCAL TIME</span>
-                    <span class="widget-location">Indonesia</span>
-                </div>
-                <div class="time-display" id="localTime">00:00:00</div>
-                <p class="widget-desc">I usually respond within 24 hours.</p>
-                
-                <div class="direct-contact">
-                    <a href="{{ profile.linkedin }}" target="_blank">LinkedIn <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="{{ profile.github }}" target="_blank">GitHub <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 {% endblock %}
