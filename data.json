@@ -49,13 +49,18 @@
   "experience": [
     {
       "year": "2026",
-      "role": "Bootcamp Red Team (Penetration Testing)",
+      "role": "Bootcamp Cyber Security (Penetration Testing)",
       "company": "IDNetworkers"
     },
     {
       "year": "2026",
       "role": "Bootcamp Cyber Sentinel Secure ",
-      "company": ""
+      "company": "XCode"
+    },
+    {
+      "year": "2026",
+      "role": "Asistem Praktikum Pemrograman Web",
+      "company": "Universitas Amikom Yogyakarta"
     }
   ],
 
